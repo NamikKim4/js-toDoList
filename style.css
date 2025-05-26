@@ -1,0 +1,297 @@
+body {
+  margin: 0;
+  background-image: url("images/background.jfif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  border-radius: 16px;
+  padding: 2em;
+  margin: 2em auto;
+  min-height: 90vh;
+  border-top: 10px solid #ffbfbf;
+  border-bottom: 10px solid #ffbfbf;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 0.2em;
+}
+
+#today-date {
+  font-size: 1em;
+  color: #777;
+  margin-bottom: 1.5em;
+}
+
+.input-area {
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.task-input {
+  width: 100%;
+  padding: 1em;
+  padding-top: 1.5em;
+  border: 2px solid #ffd9d9;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: lightpink;
+  padding-top: 2em;
+}
+
+.task-input + label > span {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font-size: 14px;
+  color: #aaa;
+  transition: all 0.3s ease;
+}
+
+.task-input:focus + label > span {
+  top: -8px;
+  left: 10px;
+  font-size: 12px;
+  color: #444;
+  background-color: white;
+  padding: 0 4px;
+}
+
+.button-add {
+  position: absolute;
+  right: -60px;
+  top: 8px;
+  padding: 0.6em 1em;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  background-color: lightpink;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button-add:hover {
+  background-color: #ff8fa3;
+}
+
+.button-add:active {
+  background-color: #ffc1c1;
+  transform: scale(0.95);
+}
+
+.task-list-container {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.tab-type {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-type div {
+  flex: 1;
+  text-align: center;
+  padding: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.tab-type div:hover {
+  color: #ff6f91;
+}
+
+#tab-underline {
+  background-color: #ffb6c1;
+  height: 4px !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 60px;
+  transition: 0.3s ease;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.task:hover {
+  background-color: #f9f9f9;
+}
+
+.task span {
+  flex: 1;
+  font-size: 1.1em;
+  color: rgba(102, 102, 102, 0.5); /* ← 항상 연한 회색 */
+}
+
+.task-done {
+  text-decoration: line-through;
+  color: #999;
+  background-color: #f0f0f0;
+}
+
+.button-box {
+  display: flex;
+  gap: 0.5em;
+}
+
+.button-box button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  transition: 0.3s;
+  border-radius: 6px;
+}
+
+.button-box button:hover {
+  background-color: #ffe5e5;
+}
+
+.fa-check {
+  color: limegreen;
+}
+.fa-trash {
+  color: red;
+}
+.fa-undo-alt {
+  color: rgb(156, 158, 160);
+}
+
+#task-count {
+  margin-top: 1em;
+  font-size: 0.95em;
+  color: #666;
+  text-align: right;
+}
+
+
+/* 다크모드 */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: rgb(189, 137, 182);
+}
+
+.container.dark-mode {
+  background-color: #2e2e2e;
+  border-color: #f39cff;
+}
+
+.task.dark-mode {
+  background-color: #444;
+  color: white;
+}
+
+.button-box button.dark-mode {
+  background-color: #555;
+  color: white;
+}
+
+.task-done.dark-mode {
+  background-color: #7c7c7c;
+  text-decoration: line-through;
+}
+
+#tab-underline.dark-mode {
+  background-color: #ff99cc;
+}
+
+h1.dark-mode {
+  color: #d3d3d3;
+}
+
+.button-add.dark-mode {
+  background-color: #ccc;
+  color: #838181;
+}
+
+
+/* 메모장 */
+.mini-memo {
+  position: absolute;
+  top: 20px;
+  right: 20px;  /* ← 이거만 바꾸면 됩니다 */
+  background-color: #fffafc;
+  border: 2px dashed #ffb6c1;
+  border-radius: 12px;
+  padding: 0.8em;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.mini-memo h2 {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  color: #444;
+}
+
+#memo-text {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.5em;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.9em;
+  background-color: #fff;
+}
+
+
+
+/* 날씨정보 */
+.memo-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 1.5em 2em;
+  max-width: 260px;
+  font-family: "Rajdhani", sans-serif;
+  color: #333;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+}
+
+/* 위치만 고정, 원하는 곳에 */
+#weather-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+/* 다크모드일 때 */
+body.dark-mode #weather-box {
+  background-color: rgba(46, 46, 46, 0.9);
+  color: #ddd;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+
